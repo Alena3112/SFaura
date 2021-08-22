@@ -1,0 +1,20 @@
+<aura:component >
+      
+    <aura:attribute name="textDescription" type="String"
+        description = "[text from field]"/>
+  
+    <aura:attribute name = "readonlyText" type="String" />
+    	    <aura:attribute name = "stopText" type="String"  />
+    
+    <p> Contact Description: {!v.textDescription}</p>
+      			 <div class="slds-form-element">
+  					  <lightning:input name="inputText" value="{! v.textDescription}"  />
+                     
+				</div>
+     <lightning:button  label="Save text"  onclick="{! c.saveText }"/>
+    <lightning:input value="{! v.readonlyText}" readonly = "true" label="Text from field"  />
+       <lightning:button  value="{! v.stopText}" label="Delete text"  onclick="{! c.deleteText }"/>
+   
+    
+    
+   </aura:component>

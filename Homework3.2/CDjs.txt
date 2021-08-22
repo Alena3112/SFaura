@@ -1,0 +1,14 @@
+({
+	saveText : function(component, event, helper) {
+        let textDescription = component.get("v.textDescription");
+        component.set("v.readonlyText", textDescription);
+	},
+    deleteText: function(component, event, helper) {
+        let deleteText = component.get ("v.stopText");  
+        component.set("v.readonlyText", deleteText);
+        component.set("v.textDescription", deleteText);
+	},
+    
+    
+    
+})

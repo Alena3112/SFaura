@@ -1,0 +1,21 @@
+public class MyController {
+   public Id accId;
+    public Contact contact {get; set;};
+    
+
+    public MyController getContact(ApexPages.StandardController controller) {
+     
+        this.testAccount = (Account)controller.getRecord();
+        Contact contact = new Contact();
+   
+}
+
+    public PageReference save() {
+       contact.AccId = this.accId;
+        insert contact;
+       
+        PageReference contPage = new ApexPages.StandardController(contact).view();
+        contPage.setRedirect(true);
+        return contPage;
+    }
+}
