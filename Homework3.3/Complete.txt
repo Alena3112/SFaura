@@ -1,0 +1,120 @@
+<aura:component controller= "MyOpenTasksController" access = "global">
+      <aura:attribute name="statusMap" type="Map"/>
+    <aura:attribute name="st" type="Task" default="{'sobjectType':'Task', 
+                                                       
+                                                       'Status': ''}"/>
+     
+    	<section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+<div class="slds-modal__container">
+    
+<header class="slds-modal__header" name="init" value="{!this}" action="{!c.doInit}">
+<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+
+<span class="slds-assistive-text">Close</span>
+</button>
+<h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Select status </h2>
+</header>
+<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+ <lightning:select aura:id="statusPicklist" value="{!v.st.Status}" onchange="{!c.handleTaskOnChange}" name="statusPicklist" label="Status" required="true">
+                    <option value="">--None--</option>
+                    <aura:iteration items="{!v.statusMap}" var="ind" indexVar="key">
+                        <option text="{!ind.value}" value="{!ind.key}" selected="{!ind.key==v.st.Status}" />
+                    </aura:iteration>
+                </lightning:select>
+    
+</div>
+<footer class="slds-modal__footer">
+<button class="slds-button slds-button_neutral" label="Back to My Open Tasks" onclick="{!c.backToOpenTasks}">Cancel</button>
+<button class="slds-button slds-button_brand" onclick="{!c.handleTaskSave}">Save</button>
+
+        </footer>
+        </div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>
+*******************************
+
+<aura:application extends="force:slds">
+    <c:completeComponent/>
+</aura:application>
+
+
+
+***************
+({
+	backToOpenTasks:function(component, event, helper) {
+        var evt = $A.get("e.force:navigateToComponent");
+        evt.setParams({
+            componentDef : "c:MyOpenTasksComponent",
+            componentAttributes: {    
+            }
+        });
+        evt.fire();
+ }
+},
+ {
+    
+    doInit: function(component, event, helper) {        
+        helper.getStatusPicklist(component, event);
+    },
+     
+    
+    handleTaskSave : function(component, event, helper) {
+        helper.saveTask(component, event);
+    },
+     
+   
+    handleTaskOnChange : function(component, event, helper) {
+        var indutry = component.get("v.st.Status");
+        alert(indutry);
+    }
+}
+
+
+
+)
+
+****************************helper
+({
+    
+    getStatusPicklist: function(component, event) {
+        var action = component.get("c.getStatus");
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var result = response.getReturnValue();
+                var statusMap = [];
+                for(var key in result){
+                    statusMap.push({key: key, value: result[key]});
+                }
+                component.set("v.statusMap", statusMap);
+            }
+        });
+        $A.enqueueAction(action);
+    }
+},
+ saveTask : function(component, event) {
+        var st = component.get("v.st");
+        var action = component.get("c.createStatus");
+        action.setParams({
+            objtask : st
+        });
+        action.setCallback(this,function(response){
+            var state = response.getState();
+            if(state === "SUCCESS"){
+                alert('Record is Created Successfully');
+            } else if(state === "ERROR"){
+                var errors = action.getError();
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        alert(errors[0].message);
+                    }
+                }
+            }else if (status === "INCOMPLETE") {
+                alert('No response from server or client is offline.');
+            }
+        });       
+        $A.enqueueAction(action);
+    }
+ 
+})
