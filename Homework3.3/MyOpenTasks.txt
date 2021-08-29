@@ -1,0 +1,176 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+   
+
+	<article class="slds-card">
+  <div class="slds-card__header slds-grid">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate" >
+      <div class="slds-media__figure">
+        <span class="slds-icon_container slds-icon-standard-task" title="tasks">
+          
+          <span class="slds-assistive-text">MyOpenTasks</span>
+        </span>
+      </div>
+      <div class="slds-media__body">
+        <h2 class="slds-card__header-title">
+          <a href="#" class="slds-card__header-link slds-truncate" title="Tasks">
+            <span>MyOpenTasks</span>
+          </a>
+        </h2>
+      </div>
+    </header>
+  </div>
+  <div class="slds-card__body slds-card__body_inner">
+    <div role="status" class="slds-spinner slds-spinner_small">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</article>
+    
+    
+    <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode with all rows selected">
+<thead>
+<tr class="slds-line-height_reset">
+<th class="slds-text-align_right" scope="col" style="width:3.25rem">
+<span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+<div class="slds-th__action slds-th__action_form">
+<div class="slds-checkbox">
+<input type="checkbox" name="options" id="checkbox-unique-id-301" value="checkbox-unique-id-301" tabindex="0" aria-labelledby="check-select-all-label column-group-header" checked="" />
+<label class="slds-checkbox__label" for="checkbox-unique-id-301" id="check-select-all-label">
+<span class="slds-checkbox_faux"></span>
+<span class="slds-form-element__label slds-assistive-text">Select All</span>
+</label>
+</div>
+</div>
+</th>
+<th aria-label="Subject" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+<a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+<span class="slds-assistive-text">Sort by: </span>
+<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+<span class="slds-truncate" title="Subject">Subject</span>
+<span class="slds-icon_container slds-icon-utility-arrowdown">
+
+</span>
+</div>
+</a>
+<div class="slds-resizable">
+<input type="range" aria-label="Subject column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-547" max="1000" min="20" tabindex="0" />
+<span class="slds-resizable__handle">
+<span class="slds-resizable__divider"></span>
+</span>
+</div>
+</th>
+<th aria-label="Status" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+<a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+<span class="slds-assistive-text">Sort by: </span>
+<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+<span class="slds-truncate" title="Status">Status</span>
+<span class="slds-icon_container slds-icon-utility-arrowdown">
+
+</span>
+</div>
+</a>
+<div class="slds-resizable">
+<input type="range" aria-label="Status column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-548" max="1000" min="20" tabindex="0" />
+<span class="slds-resizable__handle">
+<span class="slds-resizable__divider"></span>
+</span>
+</div>
+</th>
+<th aria-label="Due Date" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+<a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+<span class="slds-assistive-text">Sort by: </span>
+<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+<span class="slds-truncate" title="Due Date">Due Date</span>
+<span class="slds-icon_container slds-icon-utility-arrowdown">
+
+</span>
+</div>
+</a>
+<div class="slds-resizable">
+<input type="range" aria-label="Due Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-549" max="1000" min="20" tabindex="0" />
+<span class="slds-resizable__handle">
+<span class="slds-resizable__divider"></span>
+</span>
+</div>
+</th>
+<th aria-label="Comments" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+<a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+<span class="slds-assistive-text">Sort by: </span>
+<div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+<span class="slds-truncate" title="Comments">Comments</span>
+<span class="slds-icon_container slds-icon-utility-arrowdown">
+
+</span>
+</div>
+</a>
+ <div class="slds-resizable">
+<input type="range" aria-label="Comments column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-550" max="1000" min="20" tabindex="0" />
+<span class="slds-resizable__handle">
+<span class="slds-resizable__divider"></span>
+</span>
+</div>
+</th>
+  </tr>
+</thead>
+<tbody>
+<tr aria-selected="true" class="slds-hint-parent slds-is-selected">
+<td class="slds-text-align_right" role="gridcell">
+<div class="slds-checkbox">
+<input type="checkbox" name="options" id="checkbox-01" value="checkbox-01" tabindex="0" aria-labelledby="check-button-label-01 column-group-header" checked="" />
+<label class="slds-checkbox__label" for="checkbox-01" id="check-button-label-01">
+<span class="slds-checkbox_faux"></span>
+<span class="slds-form-element__label slds-assistive-text">Select item 1</span>
+</label>
+</div>
+</td>
+<th scope="row">
+<div class="slds-truncate" title="Subject">
+<a href="#" tabindex="0">Subject1</a>
+</div>
+</th>
+<td role="gridcell">
+<div class="slds-truncate" title="Status">Status1</div>
+</td>
+<td role="gridcell">
+<div class="slds-truncate" title="Due-Date">Due-Date</div>
+</td>
+<td role="gridcell">
+<div class="slds-truncate" title="Comments">Comments</div>
+</td>
+    </tr>
+</tbody>
+</table>
+    <aura:attribute name="subject" type="String"/>
+    <aura:attribute name="status" type="List"/>
+     <aura:attribute name="dueDate" type="Object"/>
+    <aura:attribute name="comments" type="String"/>
+       
+        <lightning:datatable
+            subject ="{! v.subject }"
+            dueDate="{! v.dueDate }"
+              status  ="{! v.status }"     
+                    comments  ="{! v.comments}"          
+            keyField="id"
+               />
+    <button class="slds-button slds-button_neutral" onclick="{!c.completeModal}">Complete</button>
+</aura:component>
+
+********************
+<aura:application extends="force:slds">
+    <c:MyOpenTasksComponent/>
+</aura:application>
+******************
+({
+	completeModal:function(component, event, helper) {
+        var evt = $A.get("e.force:navigateToComponent");
+        evt.setParams({
+            componentDef : "c:CompleteComponent",
+            componentAttributes: {    
+            }
+        });
+        evt.fire();
+ }
+})
+**************************
